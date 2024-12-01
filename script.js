@@ -71,6 +71,6 @@ const samochody = [
     }
 ];
 
-const result = samochody.filter(function(e){
-    return e.przebieg > 12000;
-})
+const wartoscSamochodow = samochody.reduce(function(previousValue, currentValue){
+    return previousValue = currentValue.ilosc * currentValue.cena
+}, 0)
