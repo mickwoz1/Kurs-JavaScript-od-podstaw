@@ -71,6 +71,6 @@ const samochody = [
     }
 ];
 
-const modyfikacjaCen = samochody.map(function(e){
-    return e.cena * 1.2
+const result = samochody.filter(function(e){
+    return e.przebieg > 12000;
 })
