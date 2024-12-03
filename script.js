@@ -1,76 +1,44 @@
-const samochody = [
-    {
-        marka: 'Opel',
-        model: 'Astra',
-        przebieg: 120000,
-        cena: 10000,
-        ilosc: 3
-    },
-    {
-        marka: 'Opel',
-        model: 'Vectra',
-        przebieg: 200000,
-        cena: 15000,
-        ilosc: 5
-    },
-    {
-        marka: 'Opel',
-        model: 'Corsa',
-        przebieg: 300000,
-        cena: 20000,
-        ilosc: 2
-    },
-    {
-        marka: 'Opel',
-        model: 'Insignia',
-        przebieg: 400000,
-        cena: 25000,
-        ilosc: 1
-    },
-    {
-        marka: 'Opel',
-        model: 'Astra',
-        przebieg: 500000,
-        cena: 30000,
-        ilosc: 4
-    },
-    {
-        marka: 'Opel',
-        model: 'Vectra',
-        przebieg: 600000,
-        cena: 35000,
-        ilosc: 6
-    },
-    {
-        marka: 'Opel',
-        model: 'Corsa',
-        przebieg: 700000,
-        cena: 40000,
-        ilosc: 7
-    },
-    {
-        marka: 'Opel',
-        model: 'Insignia',
-        przebieg: 800000,
-        cena: 45000,
-        ilosc: 8
-    },
-    {
-        marka: 'Opel',
-        model: 'Astra',
-        przebieg: 900000,
-        cena: 50000,
-        ilosc: 9
-    },
-    {
-        marka: 'Opel',
-        model: 'Vectra',
-        przebieg: 1000000,
-        cena: 55000,
-        ilosc: 10
-    }
-];
+const pracownicy = new Array();
+let wybor;
 
-const wartoscSamochodow = samochody.reduce(function(previousValue, currentValue){
-    return previousValue = currentValue.ilosc * currentValue.cena
-}, 0)
+// konstruktor obiektu osoba
+function Osoba(imie, nazwisko) {
+    this.imie = imie;
+    this.nazwisko = nazwisko;
+}
+
+// funkcja tworząca pracowników
+function tworzenie(imie, nazwisko) {
+    const pracownik = new Osoba(imie, nazwisko);
+    pracownicy.push(pracownik);
+}
+
+// funkcja usuwająca pracowników
+function usuwanie(nr) {
+    delete pracownicy[nr];
+}
+
+// interfejs
+while (wybor != 0) {
+    wybor = prompt("Co chcesz zrobić: 1 - dodaj pracownika, 2 - usuń pracownika, 3 - wypisz pracowników, 0 - wyjdź");
+    switch (wybor) {
+        case '1':
+            let imie = prompt("Podaj imie");
+            let nazwisko = prompt("Podaj nazwisko");
+            tworzenie(imie, nazwisko);
+            break;
+        case '2':
+            let numer = parseInt(prompt("Podaj numer pracownika do usunięcia"));
+            usuwanie(numer);
+            break;
+        case '3':
+            pracownicy.forEach((e) => {
+                console.log(e);
+            })
+            break;
+        default:
+            document.write("Nie wybrano odpowiedniej opcji!");
+    }
+}
+
+console.log(pracownicy);
