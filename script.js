@@ -1,3 +1,13 @@
+function graczPierwszy(){
+    g1.style.border = "2px solid black"; // czemu samo ID?? bo ID jest globalą zmienną
+    g2.style.border = "none";
+}
+
+function graczDrugi(){
+    g2.style.border = "2px solid black";
+    g1.style.border = "none";
+}
+
 function gramy(){
     let gracz1 = document.getElementById("gracz1").value;
     let gracz2 = document.getElementById("gracz2").value;
@@ -17,6 +27,8 @@ function gramy(){
     polaGraczy[1].value = gracz2;
 
     document.getElementById("g1").onclick = () => {
+        graczPierwszy();
+
         pole1.onclick = () => { pole1.innerText = "X" }
         pole2.onclick = () => { pole2.innerText = "X" }
         pole3.onclick = () => { pole3.innerText = "X" }
@@ -29,6 +41,8 @@ function gramy(){
     }
 
     document.getElementById("g2").onclick = () => {
+        graczDrugi();
+
         pole1.onclick = () => { pole1.innerText = "O" }
         pole2.onclick = () => { pole2.innerText = "O" }
         pole3.onclick = () => { pole3.innerText = "O" }
