@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
-    <header></header>
-
-    <section>
-        <p></p>
-    </section>
-
-    <footer></footer>
-    
+    <div id="kontener">
+        <form action="#">
+            <label for="imie1"><input class="gracz" type="button" value="Gracz 1" onclick="uzytkownik('uzytk2')"></label>
+            <label for="imie2"><input class="gracz" type="button" value="Gracz 2" onclick="uzytkownik('uzytk2')"></label>
+        </form>
+        <form action="#">
+            <div class="row">
+                <button id="a" class="gameButton" onclick="zdarzenie(0)">?</button>
+                <button id="b" class="gameButton" onclick="zdarzenie(1)">?</button>
+                <button id="c" class="gameButton" onclick="zdarzenie(2)">?</button>
+            </div>
+            <div class="row">
+                <button id="d" class="gameButton" onclick="zdarzenie(3)">?</button>
+                <button id="e" class="gameButton" onclick="zdarzenie(4)">?</button>
+                <button id="f" class="gameButton" onclick="zdarzenie(5)">?</button>
+            </div>
+            <div class="row">
+                <button id="g" class="gameButton" onclick="zdarzenie(6)">?</button>
+                <button id="h" class="gameButton" onclick="zdarzenie(7)">?</button>
+                <button id="i" class="gameButton" onclick="zdarzenie(8)">?</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
