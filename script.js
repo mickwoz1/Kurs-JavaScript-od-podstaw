@@ -1,14 +1,47 @@
-function graczPierwszy(){
-    g1.style.border = "2px solid black"; // czemu samo ID?? bo ID jest globalą zmienną
-    g2.style.border = "none";
-}
+const przyciski = document.querySelectorAll(".gameButton");
+let g1 = document.querySelector("#g1");
+let g2 = document.querySelector("#g2");
+let gracz;
 
-function graczDrugi(){
-    g2.style.border = "2px solid black";
-    g1.style.border = "none";
-}
+window.addEventListener("load", function(){
+    document.querySelector("#start").addEventListener("click", gramy)
+})
 
 function gramy(){
+    console.log("Wybierz gracza");
+    // wprowadzamy imiona
+    let graczPierwszy = document.querySelector("#gracz1").value;
+    let graczDrugi = document.querySelector("#gracz2").value;
+    
+    g1.value = graczPierwszy + " X";
+    g2.value = graczDrugi + " O";
+
+    g1.addEventListener("click", function(){
+        gracz = 'X';
+        g1.setAttribute("style", "border:  2px solid black;");
+        g2.setAttribute("style", "border:  none;");
+        zaznaczGracza();
+    })
+
+    g2.addEventListener("click", function(){
+        gracz = 'O';
+        g2.setAttribute("style", "border:  2px solid black;");
+        g1.setAttribute("style", "border:  none;");
+        zaznaczGracza();
+    })
+}
+
+function zaznaczGracza(){
+    for(let p of przyciski){
+        p.addEventListener("click", function(e){
+            if(e.target.innerText != 'X' && e.target.innerText != 'O'){
+                document.getElementById(e.target.id).innerHTML = gracz; // wstawia znak
+            }
+        })
+    }
+}
+
+/*function gramy(){
     let gracz1 = document.getElementById("gracz1").value;
     let gracz2 = document.getElementById("gracz2").value;
 
@@ -53,4 +86,4 @@ function gramy(){
         pole8.onclick = () => { pole8.innerText = "O" }
         pole9.onclick = () => { pole9.innerText = "O" }
     }
-}
+}*/
